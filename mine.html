@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Will You Be Mine?</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; margin-top: 50px; }
+        .button { padding: 15px 25px; font-size: 20px; cursor: pointer; border: none; border-radius: 5px; margin: 10px; }
+        #yes { background-color: green; color: white; }
+        #no { background-color: red; color: white; }
+    </style>
+    <script>
+        function swapButtons() {
+            let yesText = document.getElementById("yes").innerText;
+            let noText = document.getElementById("no").innerText;
+
+            document.getElementById("yes").innerText = noText;
+            document.getElementById("no").innerText = yesText;
+
+            document.getElementById("yes").setAttribute("onclick", "goToNoPage()");
+            document.getElementById("no").setAttribute("onclick", "swapButtons()");
+        }
+
+        function goToNoPage() {
+            window.location.href = "no.html"; // Redirects to "This is not good" page
+        }
+    </script>
+</head>
+<body>
+    <h1>Will You Be Mine? ❤️</h1>
+    <button id="yes" class="button" onclick="swapButtons()">Yes</button>
+    <button id="no" class="button" onclick="goToNoPage()">No</button>
+</body>
+</html>
